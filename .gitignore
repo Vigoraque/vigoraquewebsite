@@ -1,0 +1,9 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+
+# Dependencies (none currently, but safe if you add tooling later)
+node_modules/
+.vercel/
