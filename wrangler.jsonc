@@ -1,0 +1,10 @@
+{
+  // Cloudflare config: serve this repo as a static website (assets-only Worker).
+  // Deployed via `npx wrangler deploy` — no build step needed.
+  "name": "vigoraquewebsite",
+  "compatibility_date": "2025-06-01",
+  "assets": {
+    "directory": "./",
+    "not_found_handling": "404-page"
+  }
+}
