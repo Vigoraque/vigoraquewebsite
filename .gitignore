@@ -7,3 +7,10 @@ desktop.ini
 # Dependencies (none currently, but safe if you add tooling later)
 node_modules/
 .vercel/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
