@@ -1,0 +1,53 @@
+/* =========================================================
+   Vigoraque — homepage-only additions (loaded after styles.css)
+   Rotating hero background + 3-up tagline row.
+   ========================================================= */
+
+/* ---------- Rotating hero background (CSS crossfade, GSAP-independent) ---------- */
+.hero-slides {
+  position: absolute;
+  top: -6%; left: 0; right: 0;
+  height: 112%;                /* extra height so parallax never reveals an edge */
+  z-index: 0;
+  overflow: hidden;
+}
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  will-change: opacity;
+  animation: heroCrossfade 16s infinite;
+}
+/* Second image is offset by half the cycle so the two cross-fade into each other */
+.hero-slide:nth-child(2) { animation-delay: -8s; }
+
+@keyframes heroCrossfade {
+  0%   { opacity: 1; }
+  42%  { opacity: 1; }
+  50%  { opacity: 0; }
+  92%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Respect reduced-motion: show the first image, no rotation */
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide { animation: none; opacity: 0; }
+  .hero-slide:first-child { opacity: 1; }
+}
+
+/* ---------- Taglines row (replaces the 4 numeric counters) ---------- */
+.stats-grid.taglines { grid-template-columns: repeat(3, 1fr); }
+.tagline-title {
+  display: block;
+  margin-top: 6px;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: var(--ink, #14181b);
+}
+@media (max-width: 860px) {
+  .stats-grid.taglines { grid-template-columns: 1fr; }
+}
