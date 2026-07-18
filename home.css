@@ -51,3 +51,9 @@
 @media (max-width: 860px) {
   .stats-grid.taglines { grid-template-columns: 1fr; }
 }
+
+/* ---------- About image: show the full Ferroalloys composite (all four quadrants) ---------- */
+.about-media-frame img.about-img-contain {
+  object-fit: contain;
+  background: #0d0f10;         /* dark letterbox so nothing looks cut off */
+}
